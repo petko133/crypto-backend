@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "start": "tsc . && node ./dist/app.js",
+    "build": "tsc",
+    "start": "npx tsc && node ./dist/app.js",
     "build:prod": "npm install",
     "start:dev": "tsc-watch --onSuccess \"npm run node:start:dev\"",
     "node:start:dev": "npm run lint && node dist/app.js",
