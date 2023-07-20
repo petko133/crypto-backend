@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "node ./dist/app.js",
-    "build:prod": "npm install && tsc",
+    "build:prod": "npm install",
     "start:dev": "tsc-watch --onSuccess \"npm run node:start:dev\"",
     "node:start:dev": "npm run lint && node dist/app.js",
     "compile:tsc": "ttsc",
