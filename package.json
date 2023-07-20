@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build:prod && cross-env NODE_ENV=production node dist/app.js",
-    "build:prod": "tsc-watch --onSuccess \"npm run node:start:dev\"",
+    "start": "npm run build:prod && node dist/app.js",
+    "build:prod": "npm install && tsc",
     "start:dev": "tsc-watch --onSuccess \"npm run node:start:dev\"",
     "node:start:dev": "npm run lint && node dist/app.js",
     "compile:tsc": "ttsc",
