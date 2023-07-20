@@ -4,6 +4,7 @@ package-lock.json
 # Node artifact files
 node_modules/
 dist/
+.env
 
 # Compiled Java class files
 *.class
