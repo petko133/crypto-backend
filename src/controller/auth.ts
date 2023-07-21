@@ -46,8 +46,8 @@ export const signup = async (req: Request, res: Response) => {
       message: 'Success',
       userId: user._id.toString(),
       token: token,
-			email: email,
-			watchlist: '',
+      email: email,
+      watchlist: '',
     });
   }
 };
@@ -60,7 +60,7 @@ export const login = async (req: Request, res: Response) => {
   try {
     const user = await User.findOne({ email: email });
 
-    if (!errors.isEmpty()) {			
+    if (!errors.isEmpty()) {
       return res.status(422).json({
         message: errors.errors[0].msg,
       });
@@ -124,15 +124,20 @@ export const addToWatchlist = async (req: Request, res: Response) => {
 export const getWatchlist = async (req: Request, res: Response) => {
   const userId = req.params.id;
 
-  const user = await User.findById(userId);
-  if (!user) {
-    return;
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return;
+    }
+    res.status(200).json({
+      message: 'User watchlist',
+      watchlist: user.watchlist,
+    });
+  } catch (err) {
+    res.status(404).json({
+			message: 'User not found'
+		})
   }
-
-  res.status(200).json({
-    message: 'User watchlist',
-    watchlist: user.watchlist,
-  });
 };
 
 export const deleteFromWatchlist = async (req: Request, res: Response) => {
