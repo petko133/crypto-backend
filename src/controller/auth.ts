@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { Request, Response } from 'express';
 import { User } from '../models/user.js';
 import jwt from 'jsonwebtoken';
-import { Result, ValidationError, validationResult } from 'express-validator';
+import { validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 
 const secret: string | undefined = process.env.SECRET;
