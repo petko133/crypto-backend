@@ -56,9 +56,11 @@ export const login = async (req: Request, res: Response) => {
   const email: string = req.body.email;
   const password: string = req.body.password;
   const errors: any = validationResult(req);
+  console.log(email);
 
   try {
     const user = await User.findOne({ email: email });
+    console.log(user);
 
     if (!errors.isEmpty()) {
       return res.status(422).json({
@@ -135,8 +137,8 @@ export const getWatchlist = async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(404).json({
-			message: 'User not found'
-		})
+      message: 'User not found',
+    });
   }
 };
 
