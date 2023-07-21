@@ -56,11 +56,9 @@ export const login = async (req: Request, res: Response) => {
   const email: string = req.body.email;
   const password: string = req.body.password;
   const errors: any = validationResult(req);
-  console.log(email);
 
   try {
     const user = await User.findOne({ email: email });
-    console.log(user);
 
     if (!errors.isEmpty()) {
       return res.status(422).json({
